@@ -8,10 +8,10 @@ public class StatsService {
         int minSales = sales[0];
         for (int i = 1; i < sales.length; i++) {
             if (sales[i] < minSales) {
-                minSales = (int) sales[i];
+                minSales = sales[i];
             }
         }
-git
+
 
         int count = 0;
         for (int sale : sales) {
@@ -61,7 +61,7 @@ git
         int maxSales = 0;
         for (int i = 1; i < sales.length; i++) {
             if (sales[i] > maxSales) {
-                maxSales = (int) sales[i];
+                maxSales = sales[i];
             }
 
         }
@@ -73,7 +73,7 @@ git
             }
         }
 
-        int maxSalesMonths[] = new int[count];
+        int[] maxSalesMonths = new int[count];
         int index = 0;
         for (int i = 1; i < sales.length; i++) {
             if (sales[i] == maxSales) {
@@ -88,16 +88,11 @@ git
     }
 
     public int calculateBellowAverage(long[] sales) {
-        long totalAmount = 0;
 
-        for (long i : sales) {
-            totalAmount += i;
-
-        }
-        double average = totalAmount / sales.length;
+        double average = calculateAverageAmount(sales);
         int count = 0;
-        for (int x = 0; x < sales.length; x++) {
-            if (x < average) {
+        for (int i = 0; i < sales.length; i++) {
+            if (i < average) {
                 count++;
             }
         }
@@ -106,16 +101,10 @@ git
     }
 
     public int calculateAboveAverage(long[] sales) {
-        long totalAmount = 0;
-
-        for (long i : sales) {
-            totalAmount += i;
-
-        }
-        double average = totalAmount / sales.length;
+        double average = calculateAverageAmount(sales);
         int count = 0;
-        for (int x = 0; x < sales.length; x++) {
-            if (x > average) {
+        for (int i = 0; i < sales.length; i++) {
+            if (i > average) {
                 count++;
             }
         }
